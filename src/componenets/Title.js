@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Allcases = () => {
+const Title = ({ title }) => {
   return (
     <div className='titleCases'>
-        <h4>כל התיקים</h4>
+        <h4>{title}</h4>
     </div>
 
     
   )
 }
 
-export default Allcases
+export default Title

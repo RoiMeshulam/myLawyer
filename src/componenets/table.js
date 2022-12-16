@@ -53,26 +53,26 @@ function pullAllCases(){
 }
 
 
-function createData(id, client_name, case_type, curr_stage) {
-  return {
-    id,
-    client_name,
-    case_type,
-    curr_stage,
-    history: [
-      {
-        date: '2020-01-05',
-        customerId: '11091700',
-        amount: 3,
-      },
-      {
-        date: '2020-01-02',
-        customerId: 'Anonymous',
-        amount: 1,
-      },
-    ],
-  };
-}
+// function createData(id, client_name, case_type, curr_stage) {
+//   return {
+//     id,
+//     client_name,
+//     case_type,
+//     curr_stage,
+//     history: [
+//       {
+//         date: '2020-01-05',
+//         customerId: '11091700',
+//         amount: 3,
+//       },
+//       {
+//         date: '2020-01-02',
+//         customerId: 'Anonymous',
+//         amount: 1,
+//       },
+//     ],
+//   };
+// }
 
 function Row(props) {
   const { row } = props;
@@ -115,18 +115,18 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {/* {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
+                  {/* {row.history.map((historyRow) => ( */}
+                    <TableRow key="14/11/1996">
                       <TableCell component="th" scope="row">
-                        {historyRow.date}
+                        {"14/11/1996"}
                       </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
+                      <TableCell>{'historyRow.customerId'}</TableCell>
+                      <TableCell align="right">{'historyRow.amount'}</TableCell>
                       <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
+                        {Math.round(3 * 17 * 100) / 100}
                       </TableCell>
                     </TableRow>
-                  ))} */}
+                  {/* ))} */}
                 </TableBody>
               </Table>
             </Box>
@@ -163,8 +163,6 @@ Row.propTypes = {
 
 pullAllCases().then(rows=>{
     for (const row of rows) {
-        console.log(row)
-        
         const {CaseNum} = row
         console.log(CaseNum)
     }

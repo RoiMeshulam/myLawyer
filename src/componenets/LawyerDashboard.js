@@ -1,68 +1,48 @@
 
 import * as React from 'react';
 import '../index.css';
-import Allcases from './allcases';
-import Lawyerlogo from './logo';
 import Grid from '@mui/material/Grid';
 import Item from '@mui/material/Grid';
-import Button from './button';
-import CollapsibleTable from './table';
+import Navigation from './Navigation';
+import PreviewComp from './PreviewComp';
+
+
+
 
 const LawyerDashboard = () => {
+
+  // const previewComponent
+  
+  const [previewIndex,setPreviewIndex] = React.useState(0);
+  const [allCases, setAllCases] = React.useState([]);
+  const [allCaseTypes, setAllCaseTypes] = React.useState([]);
+  const [allClientReq, setAllClientReq] = React.useState([]);
+  const [allLawyers, setAllLawyers] = React.useState([]);
+  const [activeCases, setActiveCases] = React.useState([]);
+
+
+  //OnClick in Navigation conponent -> change the previewIndex 
+  const changeIndex = (e,index) => {
+    e.preventDefault();
+    setPreviewIndex(index);
+  }
+
   return (
-    <div>
-        <Lawyerlogo/>
-        <Grid container spacing={1}>
-          <Grid item xs={9}>
-            <Item>
-              <div className='container'>
-                <Allcases/>
-                <CollapsibleTable/>
-              </div>
-
-            </Item>
+    <div className='Lawyer-background'>
+        <Grid container spacing={1} >
+            <Grid item xs={9} style={{marginTop:"150px"}}>
+              <Item>
+                <PreviewComp preview={previewIndex} allCases={allCases} allCaseTypes={allCaseTypes} allClientReq={allClientReq} allLawyers={allLawyers} activeCases={activeCases} />
+              </Item>
+            </Grid>
+            <Grid item xs={3} style={{marginTop:"150px"}}>
+              <Item>
+                <Navigation onClick={changeIndex} setAllCases={setAllCases} setAllCaseTypes={setAllCaseTypes} setAllClientReq={setAllClientReq} setAllLawyers={setAllLawyers} setActiveCases={setActiveCases}  />
+              </Item>
+            </Grid>
           </Grid>
-          <Grid item xs={3}>
-            <Item>
-            <div className='container-btn'>
-              
-                <Button text='תיקים פעילים'/>
-                <Button text='כל התיקים'/>
-                <Button text='כל סוגי התיקים'/>
-                {/* <h3>-------------------</h3> */}
-                <hr
-                  style={{
-                    background: '#D0B49F',
-                    color: '#D0B49F',
-                    // borderColor: '#D0B49F',
-                    height: '3px',
-                    width:'100%'
-                  }}
-                />
-                <Button text='יצירת תיק חדש'/>
-                <Button text='יצירת סוג תיק חדש'/>
-                <Button text='עריכת תיק קיים'/>
-             
-                
-               
-              </div>
-            </Item>
-          </Grid>
-        </Grid>
-
-
-        
-        {/* <ButtonAppBar/> */}
-        {/* <Allcases/> */}
-
     </div>
-    
 
-
-
-    // <div className='Dashboard'>
-    //     <h1>hello</h1>
-    // </div>
   )
 }
 
